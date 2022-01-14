@@ -21,18 +21,30 @@ const Dashboard: Component = () => {
 
   return (
     <Visible when={!loading()}>
-      <div class='p-5'>
+      <div class='p-5 flex flex-col space-y-3'>
         <Headline
           rightSlot={
             <OutlineBtn
-              tooltip='Mapping Stuff'
+              tooltip='Forms stuffs'
+              onClick={() => navigate('/forms')}
+            >
+              Show
+            </OutlineBtn>
+          }
+        >
+          Forms
+        </Headline>
+        <Headline
+          rightSlot={
+            <OutlineBtn
+              tooltip='Mapping stuffs'
               onClick={() => navigate('/mapping')}
             >
               Show
             </OutlineBtn>
           }
         >
-          Mapping Stuffs
+          Mapping
         </Headline>
       </div>
     </Visible>

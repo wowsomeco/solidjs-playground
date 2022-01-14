@@ -39,6 +39,7 @@ specifiers:
   solid-app-router: ^0.1.7
   solid-js: ^1.1.5
   tailwindcss: ^2.2.14
+  tippy.js: ^6.3.7
   typescript: ^4.3.5
   vite: ^2.5.1
   vite-plugin-solid: ^2.0.3
@@ -62,6 +63,7 @@ dependencies:
   shapefile: 0.6.6
   solid-app-router: 0.1.7_solid-js@1.1.5
   solid-js: 1.1.5
+  tippy.js: 6.3.7
 
 devDependencies:
   '@types/leaflet': 1.7.8
@@ -3260,6 +3262,12 @@ packages:
   /timsort/0.3.0:
     resolution: {integrity: sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=}
     dev: true
+
+  /tippy.js/6.3.7:
+    resolution: {integrity: sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==}
+    dependencies:
+      '@popperjs/core': 2.10.1
+    dev: false
 
   /tmp/0.2.1:
     resolution: {integrity: sha512-76SUhtfqR2Ijn+xllcI5P1oyannHNHByD80W1q447gU3mp9G9PSpGdWmjUOHRDPiHYacIk66W7ubDTuPF3BEtQ==}
