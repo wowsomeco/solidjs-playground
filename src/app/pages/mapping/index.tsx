@@ -3,19 +3,23 @@ import type { Component } from 'solid-js';
 import { createSignal, onMount } from 'solid-js';
 
 import Leaflet from '~app/common/components/leaflet';
-import { parseShp } from '~app/common/scripts/mapping';
+import { parseShpFromFile } from '~app/common/scripts/shpParser';
 import SpinCircleLoader from '~lib/loaders/components/spinCircleLoader';
+import useNotif from '~lib/notif/contexts/context';
 
 const Mapping: Component = () => {
+  const { notif } = useNotif;
   const [loading, setLoading] = createSignal(false);
   const [feature, setFeature] = createSignal<Feature>(undefined);
 
   const handleFiles = async (files: FileList) => {
     setLoading(true);
 
-    const result = await parseShp(files[0]);
-    console.log(result);
-    setFeature(result);
+    await parseShpFromFile(files[0])
+      .then((result) => setFeature(result))
+      .catch((err) =>
+        notif.next({ text: err, class: 'bg-red-500 text-white' })
+      );
 
     setLoading(false);
   };
@@ -25,7 +29,7 @@ const Mapping: Component = () => {
       {loading() && <SpinCircleLoader size={64} />}
       <input
         type='file'
-        accept='.shp'
+        accept='.shp,.zip'
         onchange={(e) => handleFiles((e.target as HTMLInputElement).files)}
       />
       <Leaflet feature={feature()} />

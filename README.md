@@ -11,6 +11,14 @@ $ npm install -g pnpm
 $ pnpm install
 ```
 
+## Installation
+
+```console
+git clone --recursive git@github.com:wowsomeco/solidjs-playground.git
+pnpm i
+pnpm start
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -13,6 +13,7 @@ const Dashboard: Component = () => {
   const [loading, setLoading] = createSignal(true);
 
   onMount(async () => {
+    // fake delay
     await delay(1000);
 
     setLoading(false);
@@ -23,7 +24,12 @@ const Dashboard: Component = () => {
       <div class='p-5'>
         <Headline
           rightSlot={
-            <OutlineBtn onClick={() => navigate('/mapping')}>Show</OutlineBtn>
+            <OutlineBtn
+              tooltip='Mapping Stuff'
+              onClick={() => navigate('/mapping')}
+            >
+              Show
+            </OutlineBtn>
           }
         >
           Mapping Stuffs

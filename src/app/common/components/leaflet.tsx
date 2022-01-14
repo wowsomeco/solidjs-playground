@@ -44,7 +44,7 @@ const Leaflet: Component<LeafletProps> = (props) => {
     const f = L.geoJSON(props.feature).addTo(map);
 
     map.invalidateSize();
-    map.fitBounds(f.getBounds(), { maxZoom: 10 });
+    map.fitBounds(f.getBounds(), { maxZoom: 15 });
 
     layers.push(f);
   });
