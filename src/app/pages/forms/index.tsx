@@ -34,7 +34,7 @@ const Forms: Component = () => {
     useForm<DummyModel>({
       key: 'update',
       model: async () => {
-        return new DummyModel();
+        return new DummyModel('Wowsome');
       },
       onSubmit: async (_) => {
         await delay(2000);
@@ -51,7 +51,7 @@ const Forms: Component = () => {
     });
 
   return (
-    <div class='p-5'>
+    <div class='p-2 md:p-10'>
       <form onsubmit={handleSubmit}>
         <div class='flex flex-col'>
           <FormField label='Nama' key='name' error={errors}>

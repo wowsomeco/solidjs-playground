@@ -1,5 +1,6 @@
 import 'solid-js';
 
+import { DraggableOptions } from '~app/common/directives/draggable';
 import { TooltipOptions } from '~directives/tooltip';
 import { TransitionOptions } from '~directives/transition';
 
@@ -10,6 +11,7 @@ declare module 'solid-js' {
       tooltip?: TooltipOptions;
       ripple?: boolean;
       transition?: TransitionOptions;
+      draggable?: DraggableOptions;
     }
   }
 }

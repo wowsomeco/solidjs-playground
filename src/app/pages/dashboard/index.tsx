@@ -7,9 +7,29 @@ import OutlineBtn from '~app/common/components/outlineBtn';
 import Visible from '~app/common/components/visible';
 import { delay } from '~lib/common/extensions/generics';
 
-const Dashboard: Component = () => {
+interface NavProps {
+  tooltip?: string;
+  to: string;
+  label: string;
+}
+
+const Nav: Component<NavProps> = (props) => {
   const navigate = useNavigate();
 
+  return (
+    <Headline
+      rightSlot={
+        <OutlineBtn tooltip={props.tooltip} onClick={() => navigate(props.to)}>
+          Show
+        </OutlineBtn>
+      }
+    >
+      {props.label}
+    </Headline>
+  );
+};
+
+const Dashboard: Component = () => {
   const [loading, setLoading] = createSignal(true);
 
   onMount(async () => {
@@ -22,30 +42,9 @@ const Dashboard: Component = () => {
   return (
     <Visible when={!loading()}>
       <div class='p-5 flex flex-col space-y-3'>
-        <Headline
-          rightSlot={
-            <OutlineBtn
-              tooltip='Forms stuffs'
-              onClick={() => navigate('/forms')}
-            >
-              Show
-            </OutlineBtn>
-          }
-        >
-          Forms
-        </Headline>
-        <Headline
-          rightSlot={
-            <OutlineBtn
-              tooltip='Mapping stuffs'
-              onClick={() => navigate('/mapping')}
-            >
-              Show
-            </OutlineBtn>
-          }
-        >
-          Mapping
-        </Headline>
+        <Nav tooltip='Forms stuffs' label='Forms' to='/forms' />
+        <Nav tooltip='Mapping stuffs' label='Mapping' to='/mapping' />
+        <Nav tooltip='ERD Diagram (WIP)' label='ERD' to='/erd' />
       </div>
     </Visible>
   );

@@ -1,6 +1,6 @@
 import type { Feature } from '@turf/helpers';
 import type { Component } from 'solid-js';
-import { createSignal, onMount } from 'solid-js';
+import { createSignal } from 'solid-js';
 
 import Leaflet from '~app/common/components/leaflet';
 import { parseShpFromFile } from '~app/common/scripts/shpParser';
