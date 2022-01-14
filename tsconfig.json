@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,    
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "types": ["vite/client"],
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "~app/*": ["src/app/*"],
+      "~lib/*": ["src/lib/*"],
+      "~extensions/*": ["src/lib/common/extensions/*"],
+      "~directives/*": ["src/lib/common/directives/*"],
+      "~components/*": ["src/lib/common/components/*"],        
+    }
+  }
+}
