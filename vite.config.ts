@@ -8,6 +8,7 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         '~app': path.resolve(__dirname, 'src/app/'),
+        '~erd': path.resolve(__dirname, 'src/erd/'),
         '~lib': path.resolve(__dirname, 'src/lib/'),
         '~extensions': path.resolve(__dirname, 'src/lib/common/extensions/'),
         '~directives': path.resolve(__dirname, 'src/lib/common/directives/'),

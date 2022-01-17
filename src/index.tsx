@@ -8,6 +8,8 @@ import {
   faAngleUp,
   faBars,
   faHome,
+  faMinus,
+  faPlus,
   faSearch,
   faTimes,
   faTimesCircle
@@ -25,7 +27,9 @@ library.add(
   faAngleDown,
   faAngleUp,
   faAngleLeft,
-  faAngleRight
+  faAngleRight,
+  faPlus,
+  faMinus
 );
 
 render(() => <App />, document.getElementById('root'));

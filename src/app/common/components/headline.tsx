@@ -6,7 +6,7 @@ interface HeadlineProps extends PropsWithChildren {
 
 const Headline: Component<HeadlineProps> = (props) => {
   return (
-    <div class='my-2 py-2 border-b flex justify-between'>
+    <div class='text-blue-500 my-2 py-2 border-b flex justify-between'>
       <p class='font-bold text-xl'>{props.children}</p>
       {props.rightSlot}
     </div>

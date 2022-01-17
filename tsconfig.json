@@ -13,6 +13,7 @@
     "paths": {
       "~app/*": ["src/app/*"],
       "~lib/*": ["src/lib/*"],
+      "~erd/*": ["src/erd/*"],
       "~extensions/*": ["src/lib/common/extensions/*"],
       "~directives/*": ["src/lib/common/directives/*"],
       "~components/*": ["src/lib/common/components/*"],        

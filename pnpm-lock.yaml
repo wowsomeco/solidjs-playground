@@ -1,10 +1,6 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@editorjs/editorjs': ^2.22.2
-  '@editorjs/header': ^2.6.1
-  '@editorjs/list': ^1.6.2
-  '@editorjs/paragraph': ^2.8.0
   '@fortawesome/fontawesome-svg-core': ^1.2.36
   '@fortawesome/free-solid-svg-icons': ^5.15.4
   '@popperjs/core': ^2.10.1
@@ -45,10 +41,6 @@ specifiers:
   vite-plugin-solid: ^2.0.3
 
 dependencies:
-  '@editorjs/editorjs': 2.22.2
-  '@editorjs/header': 2.6.1
-  '@editorjs/list': 1.6.2
-  '@editorjs/paragraph': 2.8.0
   '@fortawesome/fontawesome-svg-core': 1.2.36
   '@fortawesome/free-solid-svg-icons': 5.15.4
   '@popperjs/core': 2.10.1
@@ -387,26 +379,6 @@ packages:
       '@babel/helper-validator-identifier': 7.14.9
       to-fast-properties: 2.0.0
     dev: true
-
-  /@editorjs/editorjs/2.22.2:
-    resolution: {integrity: sha512-rPCv7Z5LZebreQaaL4DZuWzoVGEqwB+P7BF1dsefGQNBmLyeLF412topeW2b6e+g4l1oQ7t75kCOACNTEyYYIA==}
-    dependencies:
-      codex-notifier: 1.1.2
-      codex-tooltip: 1.0.2
-      nanoid: 3.1.25
-    dev: false
-
-  /@editorjs/header/2.6.1:
-    resolution: {integrity: sha512-EsnyVFv5uThpU9tbQ/dUPFCQoa/sBFy2n+9tN3wOXJGx7sjea4fdcacJ2UYhO+7pCgZ+aSgmMOyGLYHUFbchvA==}
-    dev: false
-
-  /@editorjs/list/1.6.2:
-    resolution: {integrity: sha512-OxowV0yuE11G01czYM1dEQlz1F37ehX0ak5vAbZ9ncSXrPh0fDRw/fBxTY654FlmrsQ40UFom3owSG++tLvVGw==}
-    dev: false
-
-  /@editorjs/paragraph/2.8.0:
-    resolution: {integrity: sha512-z6w5ZR0ru3p/IjxJW/tb7OcSnVttkZukQMIsnBMX1FIKc1BNdr7NwM1YoCyTl4OnC90YfL0xgES6/20/W267pw==}
-    dev: false
 
   /@eslint/eslintrc/0.4.3:
     resolution: {integrity: sha512-J6KFFz5QCYUJq3pf0mjEcCJVERbzv71PUIDczuh9JkwGEzced6CO5ADLHB1rbf/+oPBtoPfMYNOpGDzCANlbXw==}
@@ -913,14 +885,6 @@ packages:
   /clsx/1.1.1:
     resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
     engines: {node: '>=6'}
-    dev: false
-
-  /codex-notifier/1.1.2:
-    resolution: {integrity: sha512-DCp6xe/LGueJ1N5sXEwcBc3r3PyVkEEDNWCVigfvywAkeXcZMk9K41a31tkEFBW0Ptlwji6/JlAb49E3Yrxbtg==}
-    dev: false
-
-  /codex-tooltip/1.0.2:
-    resolution: {integrity: sha512-oC+Bu5X/zyhbPydgMSLWKoM/+vkJMqaLWu3Dt/jZgXS3MWK23INwC5DMBrVXZSufAFk0i0SUni38k9rLMyZn/w==}
     dev: false
 
   /color-convert/1.9.3:
