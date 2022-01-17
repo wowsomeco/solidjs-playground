@@ -40,10 +40,10 @@ const ErdContainer: Component<ErdContainerProps> = (props) => {
   });
 
   return (
-    <div class='relative'>
+    <div class='relative overflow-hidden'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        class='absolute top-0 left-0 w-full h-full'
+        class='absolute top-0 left-0 w-full h-full overflow-visible'
         style={{
           transform: `scale(${zoom()}, ${zoom()}) translate3d(${pos().x}px, ${
             pos().y
