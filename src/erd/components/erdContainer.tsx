@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { Component, JSX } from 'solid-js';
+import type { Component } from 'solid-js';
 import { createEffect, createSignal, For } from 'solid-js';
 
 import type { ERTableModel } from '~erd/models/erTableModels';
@@ -27,11 +27,19 @@ const ErdContainer: Component<ErdContainerProps> = (props) => {
 
   createEffect(() => {
     const rel: LineConnectorProps[] = [];
+
+    // hardcode marker logic for now
+    // TODO: make it customizable
+
     props.models.forEach((m) =>
       m.relations.forEach((r) =>
         rel.push({
           from: { id: m.name, pos: m.pos },
-          to: { id: r.id, pos: props.models.find((x) => x.name === r.id).pos }
+          to: {
+            id: r.id,
+            pos: props.models.find((x) => x.name === r.id).pos,
+            marker: r.type === 'onetomany' ? 'markerAsterisk' : 'markerCircle'
+          }
         })
       )
     );
@@ -50,6 +58,27 @@ const ErdContainer: Component<ErdContainerProps> = (props) => {
           }px, 0)`
         }}
       >
+        <defs>
+          <marker
+            id='markerCircle'
+            markerWidth='8'
+            markerHeight='8'
+            refX='5'
+            refY='5'
+          >
+            <circle cx='5' cy='5' r='3' />
+          </marker>
+          <marker
+            id='markerAsterisk'
+            markerWidth='20'
+            markerHeight='20'
+            refX='10'
+            refY='10'
+            orient='auto'
+          >
+            <path d='M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z' />
+          </marker>
+        </defs>
         <For each={relations()}>
           {(r, _) => (
             <LineConnector from={r.from} to={r.to} color={props.lineColor} />

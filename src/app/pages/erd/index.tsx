@@ -1,10 +1,14 @@
 import type { Component } from 'solid-js';
+import { createSignal } from 'solid-js';
 import { createStore, produce } from 'solid-js/store';
 
 import Headline from '~app/common/components/headline';
+import OutlineBtn from '~app/common/components/outlineBtn';
 import ErdContainer from '~erd/components/erdContainer';
 import type { ERTableModel } from '~erd/models/erTableModels';
 import Vector2 from '~lib/common/utils/vec2';
+
+import FormAdd from './formAdd';
 
 interface DummyTableModel extends ERTableModel {}
 
@@ -49,7 +53,11 @@ interface ErdState {
 }
 
 const Erd: Component = () => {
-  const [state, setState] = createStore<ErdState>({ models: DUMMY_MODELS });
+  const [isFormAddOpen, setFormAddOpen] = createSignal(false);
+
+  const [state, setState] = createStore<ErdState>({
+    models: [...DUMMY_MODELS]
+  });
 
   const updatePos = (m: ERTableModel, pos: Vector2) => {
     setState(
@@ -59,21 +67,51 @@ const Erd: Component = () => {
     );
   };
 
+  const addModel = (m: ERTableModel): string => {
+    if (state.models.find((x) => x.name === m.name))
+      return `Table with name = ${m.name} already exists`;
+
+    setState('models', (models) => [...models, { ...m }]);
+    setFormAddOpen(false);
+
+    return undefined;
+  };
+
   const setFocus = (m: ERTableModel) => {
     setState({ focusedModel: m });
   };
 
   return (
-    <div class='p-5'>
-      <Headline>ER Diagram</Headline>
-      <ErdContainer
-        class='border rounded-sm'
-        models={state.models}
-        focusedModel={state.focusedModel}
-        onFocus={setFocus}
-        onUpdatePos={updatePos}
-        height='500px'
-        lineColor='#3498db'
+    <div class='flex h-full'>
+      <div class='p-2 flex-auto'>
+        <Headline
+          rightSlot={
+            <OutlineBtn
+              tooltip='Add New Table'
+              onClick={() => setFormAddOpen(true)}
+            >
+              Add Table
+            </OutlineBtn>
+          }
+        >
+          ER Diagram
+        </Headline>
+        <ErdContainer
+          class='border rounded-sm'
+          models={state.models}
+          focusedModel={state.focusedModel}
+          onFocus={setFocus}
+          onUpdatePos={updatePos}
+          height='500px'
+          lineColor='#3498db'
+        />
+      </div>
+      <div class='border-l' style={{ width: '200px' }}></div>
+      <FormAdd
+        open={isFormAddOpen()}
+        onClose={() => setFormAddOpen(false)}
+        onSubmit={addModel}
+        idOptions={() => state.models.map((x) => x.name)}
       />
     </div>
   );

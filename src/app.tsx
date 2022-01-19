@@ -1,6 +1,7 @@
 import { Route, Router, Routes } from 'solid-app-router';
 import type { Component } from 'solid-js';
 import { lazy } from 'solid-js';
+import { Portal } from 'solid-js/web';
 
 import Notif from '~lib/notif/components/notif';
 
@@ -22,7 +23,9 @@ const App: Component = () => {
           <Route path='/*all' element={<NotFound />} />
         </Routes>
       </Router>
-      <Notif duration={2000} />
+      <Portal mount={document.body}>
+        <Notif duration={2000} />
+      </Portal>
     </>
   );
 };

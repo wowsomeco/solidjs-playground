@@ -1,12 +1,14 @@
 import type { Component } from 'solid-js';
 import { onMount } from 'solid-js';
 
-import { delay } from '~lib/common/extensions/generics';
 import Vector2 from '~lib/common/utils/vec2';
+
+type LineMarker = 'markerCircle' | 'markerAsterisk';
 
 export interface NodeProps {
   id: string;
   pos: Vector2;
+  marker?: LineMarker;
 }
 
 export interface LineConnectorProps {
@@ -16,7 +18,7 @@ export interface LineConnectorProps {
 }
 
 const LineConnector: Component<LineConnectorProps> = (props) => {
-  let arrowRight: SVGPathElement;
+  let pathEl: SVGPathElement;
   let fromEl: HTMLElement;
   let toEl: HTMLElement;
 
@@ -49,10 +51,10 @@ const LineConnector: Component<LineConnectorProps> = (props) => {
 
     const path = generatePath(fromPos, toPos, Vector2.create(10, -100));
 
-    arrowRight.setAttribute('d', path);
+    pathEl.setAttribute('d', path);
   };
 
-  onMount(async () => {
+  onMount(() => {
     fromEl = document.querySelector(`#${props.from.id}`);
     toEl = document.querySelector(`#${props.to.id}`);
 
@@ -61,7 +63,13 @@ const LineConnector: Component<LineConnectorProps> = (props) => {
 
   return (
     <g fill='none' stroke={props.color ?? 'black'} stroke-width='1'>
-      <path ref={arrowRight} />
+      <path
+        ref={pathEl}
+        style={{
+          'marker-start': props.from.marker && `url(#${props.from.marker})`,
+          'marker-end': props.to.marker && `url(#${props.to.marker})`
+        }}
+      />
     </g>
   );
 };
