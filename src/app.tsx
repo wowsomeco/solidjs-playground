@@ -9,6 +9,7 @@ const Dashboard = lazy(() => import('./app/pages/dashboard'));
 const Forms = lazy(() => import('./app/pages/forms'));
 const Mapping = lazy(() => import('./app/pages/mapping'));
 const Erd = lazy(() => import('./app/pages/erd'));
+const Builder = lazy(() => import('./app/pages/builder'));
 const NotFound = lazy(() => import('./app/pages/notfound'));
 
 const App: Component = () => {
@@ -20,6 +21,7 @@ const App: Component = () => {
           <Route path='/forms' element={<Forms />} />
           <Route path='/mapping' element={<Mapping />} />
           <Route path='/erd' element={<Erd />} />
+          <Route path='/builder' element={<Builder />} />
           <Route path='/*all' element={<NotFound />} />
         </Routes>
       </Router>

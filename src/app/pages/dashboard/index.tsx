@@ -45,6 +45,7 @@ const Dashboard: Component = () => {
         <Nav tooltip='Forms stuffs' label='Forms' to='/forms' />
         <Nav tooltip='Mapping stuffs' label='Mapping' to='/mapping' />
         <Nav tooltip='ERD Diagram (WIP)' label='ERD' to='/erd' />
+        <Nav tooltip='Web Builder (WIP)' label='Web Builder' to='/builder' />
       </div>
     </Visible>
   );

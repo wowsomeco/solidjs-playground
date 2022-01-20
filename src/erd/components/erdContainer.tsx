@@ -53,9 +53,9 @@ const ErdContainer: Component<ErdContainerProps> = (props) => {
         xmlns='http://www.w3.org/2000/svg'
         class='absolute top-0 left-0 w-full h-full overflow-visible'
         style={{
-          transform: `scale(${zoom()}, ${zoom()}) translate3d(${pos().x}px, ${
-            pos().y
-          }px, 0)`
+          transform: `scale(${zoom()}, ${zoom()}) translate3d(${
+            pos().x / zoom()
+          }px, ${pos().y / zoom()}px, 0)`
         }}
       >
         <defs>

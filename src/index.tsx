@@ -10,12 +10,15 @@ import {
   faCheck,
   faEdit,
   faHome,
+  faImage,
   faMinus,
+  faParagraph,
   faPlus,
   faSave,
   faSearch,
   faTimes,
-  faTimesCircle
+  faTimesCircle,
+  faVideo
 } from '@fortawesome/free-solid-svg-icons';
 import { render } from 'solid-js/web';
 
@@ -36,7 +39,10 @@ library.add(
   faCheck,
   faSave,
   faEdit,
-  faTimes
+  faTimes,
+  faImage,
+  faParagraph,
+  faVideo
 );
 
 render(() => <App />, document.getElementById('root'));
