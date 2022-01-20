@@ -48,7 +48,7 @@ const ErdContainer: Component<ErdContainerProps> = (props) => {
   });
 
   return (
-    <div class='relative overflow-hidden'>
+    <div class='relative overflow-hidden' onclick={() => props.onFocus?.(null)}>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         class='absolute top-0 left-0 w-full h-full overflow-visible'

@@ -19,7 +19,7 @@ interface ErdSelectFieldProps {
   onChange: (m: ErdSelectFieldModel, isNameChanged: boolean) => void;
   typeOptions: ErdSelectTypeModel[];
   onDelete: () => void;
-  shouldFocusInput: boolean;
+  shouldFocusInput?: boolean;
 }
 
 const ErdSelectField: Component<ErdSelectFieldProps> = (props) => {

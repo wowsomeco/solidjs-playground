@@ -53,6 +53,7 @@ const ErdNode = <TModel extends ERTableModel>(props: ErdNodeProps<TModel>) => {
     <div
       ref={divEl}
       id={props.model.name}
+      onclick={(e) => e.stopImmediatePropagation()}
       use:clickOutside={() => props.onClickOutside?.()}
       class={clsx(props.class, 'absolute top-0 left-0 flex flex-col')}
       style={props.style}

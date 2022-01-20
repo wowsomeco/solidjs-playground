@@ -2,6 +2,7 @@ import type { Component } from 'solid-js';
 
 import Headline from '~app/common/components/headline';
 import OutlineBtn from '~app/common/components/outlineBtn';
+import { DUMMY_SELECT_TYPES } from '~app/common/scripts/constants';
 import ErdSelectField from '~erd/components/erdSelectField';
 import ErdSelectRelation from '~erd/components/erdSelectRelation';
 import type {
@@ -16,14 +17,6 @@ import { ValidatorString } from '~lib/form/validators/validatorString';
 import InputField from '~lib/input-field/components/inputField';
 import useNotif from '~lib/notif/contexts/context';
 import CenterOverlay from '~lib/overlay/components/centerOverlay';
-
-const DUMMY_SELECT_TYPES = [
-  { id: 'int', name: 'int' },
-  { id: 'double', name: 'double' },
-  { id: 'text', name: 'string' },
-  { id: 'bool', name: 'boolean' },
-  { id: 'jsonb', name: 'json' }
-];
 
 interface FormAddProps {
   open: boolean;
@@ -152,7 +145,7 @@ const FormAdd: Component<FormAddProps> = (props) => {
   };
 
   return (
-    <CenterOverlay open={props.open} onClose={onClose}>
+    <CenterOverlay withCloseBtn open={props.open} onClose={onClose}>
       <form
         style={{ width: '400px', 'max-height': '80vh' }}
         class='flex flex-col p-3 shadow bg-white space-y-2 rounded-lg overflow-scroll'
